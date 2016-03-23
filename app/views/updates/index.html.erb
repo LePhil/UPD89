@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Updates</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Candidate</th>
+      <th>Installed</th>
+      <th>Arch</th>
+      <th>Section</th>
+      <th>System</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @updates.each do |update| %>
+      <tr>
+        <td><%= update.name %></td>
+        <td><%= update.candidate %></td>
+        <td><%= update.installed %></td>
+        <td><%= update.arch %></td>
+        <td><%= update.section %></td>
+        <td><%= update.system %></td>
+        <td><%= link_to 'Show', update %></td>
+        <td><%= link_to 'Edit', edit_update_path(update) %></td>
+        <td><%= link_to 'Destroy', update, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Update', new_update_path %>
